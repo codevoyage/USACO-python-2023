@@ -28,7 +28,7 @@ def get_dial_number(n, i):
 
     return fn
 
-
+# for each number in the combination, we can have 5 possible numbers
 for i in range(-2, 3):
     first_john = get_dial_number(john[0], i)
     first_master = get_dial_number(master[0], i)
