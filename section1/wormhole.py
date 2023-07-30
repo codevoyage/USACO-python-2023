@@ -96,7 +96,7 @@ loop_combinations = 0
 
 # track the pairing status of each wormhole
 wormholes_status = []
-for i in range(N):
+for wh in wormholes:
     wormholes_status.append([None, None])
     wormholes_status[i][0] = wormholes[i]
     wormholes_status[i][1] = "unpaired"
