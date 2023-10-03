@@ -3,9 +3,6 @@ ID: shikha11
 LANG: PYTHON3
 TASK: cowtour
 """
-import time
-
-start = time.time()
 
 fin = open('cowtour.in', 'r')
 fout = open('cowtour.out', 'w')
@@ -20,7 +17,6 @@ for _ in range(n):
     y.append(b)
 
 
-# Use a 2D array to store the distances between each pair of points
 def compute_distance(p11, p22):
     return ((x[p11] - x[p22]) ** 2 + (y[p11] - y[p22]) ** 2) ** 0.5
 
@@ -54,7 +50,7 @@ for node in range(n):
         dfs(node, c)
         c += 1
 
-# Calculate the shortest paths for nodes in the same component
+# Calculate the shortest paths for nodes in the same component using Floyd-Warshall
 for intermediate in range(n):
     comp_intermediate = component[intermediate]
     for source in range(n):
@@ -68,7 +64,7 @@ for intermediate in range(n):
                     destination], adjacency_matrix[source][destination])
             adjacency_matrix[destination][source] = adjacency_matrix[source][destination]
 
-# Compute the diameter of each component and the furthest point from a point in each component
+# Compute the diameter of each component and the furthest connected point from every point
 diameter = [0] * c
 furthest_in_component = [0] * n
 for p1 in range(n):
@@ -94,6 +90,4 @@ for p1 in range(n):
 
 formatted_number = '{:.6f}'.format(new_diameter)
 fout.write(str(formatted_number) + '\n')
-
-print(time.time() - start)
 fout.close()
