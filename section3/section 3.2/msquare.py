@@ -64,5 +64,3 @@ else:
         line_end = min(i + 60, len(solution[i:]))
         fout.write(solution[i:i + line_end] + "\n")
 
-fin.close()
-fout.close()
